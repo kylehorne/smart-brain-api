@@ -11,8 +11,10 @@ const image = require('./controllers/image');
 const db = knex({
   client: 'pg',
   connection: {
-    connectionString: process.env.DATABASE_URL,
-    ssl: true
+    host : '127.0.0.1',
+    user : 'kylehorne',
+    password : '',
+    database : 'smart-brain'
   }
 });
 
@@ -41,7 +43,8 @@ app.listen(PORT, ()=> {
 
 console.log(PORT);*/
 
+const PORT = process.env.PORT || 3000;
 
-app.listen(process.env.PORT || 3000, ()=> {
+app.listen(PORT, ()=> {
   console.log(`app is running on port ${process.env.PORT}`);
 })
