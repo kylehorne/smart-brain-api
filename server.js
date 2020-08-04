@@ -41,6 +41,8 @@ app.listen(PORT, ()=> {
 
 console.log(PORT);*/
 
+console.log("test");
+
 console.log(process.env.PORT);
 
 app.listen(process.env.PORT, ()=> {
