@@ -18,9 +18,6 @@ const db = knex({
 
 const app = express();
 
-app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '/public'));
-
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
@@ -44,21 +41,6 @@ app.listen(PORT, ()=> {
 
 console.log(PORT);*/
 
-process
-  .on('SIGTERM', shutdown('SIGTERM'))
-  .on('SIGINT', shutdown('SIGINT'))
-  .on('uncaughtException', shutdown('uncaughtException'));
-
-  function shutdown(signal) {
-    return (err) => {
-      console.log(`${ signal }...`);
-      if (err) console.error(err.stack || err);
-      setTimeout(() => {
-        console.log('...waited 5s, exiting.');
-        process.exit(err ? 1 : 0);
-      }, 5000).unref();
-    };
-  }
 
 app.listen(process.env.PORT || 3000, ()=> {
   console.log(`app is running on port ${process.env.PORT}`);
