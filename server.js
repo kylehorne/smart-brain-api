@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-  res.send('it is working!');
+  res.send(process.env.PORT);
 })
 
 app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt) });
@@ -40,10 +40,6 @@ app.listen(PORT, ()=> {
 })
 
 console.log(PORT);*/
-
-console.log("test");
-
-console.log(process.env.PORT);
 
 app.listen(process.env.PORT, ()=> {
   console.log(`app is running on port ${process.env.PORT}`);
